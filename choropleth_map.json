@@ -1,0 +1,113 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Top 3 E-Commerce Platforms by Country",
+  "width": 800,
+  "height": 400,
+  "projection": {"type": "equalEarth"},
+  "params": [
+    {
+      "name": "Platform_Select",
+      "value": null,
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "Amazon",
+          "Shopee",
+          "Mercadolibre",
+          "Rakuten",
+          "Naver",
+          "Thegioididong",
+          "Trademe",
+          "Priceoye",
+          "Dewu"
+        ],
+        "labels": [
+          "Show All Platforms",
+          "Amazon",
+          "Shopee",
+          "Mercado Libre",
+          "Rakuten",
+          "Naver",
+          "Thegioididong",
+          "Trademe",
+          "Priceoye",
+          "Dewu"
+        ],
+        "name": "Select #1 Platform: "
+      }
+    }
+  ],
+  "layer": [
+    {
+      "data": {
+        "url": "ne_110m_admin_0_countries.topojson",
+        "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
+      },
+      "mark": {"type": "geoshape", "fill": "#E5E5E5", "stroke": "white"}
+    },
+    {
+      "data": {
+        "url": "ne_110m_admin_0_countries.topojson",
+        "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
+      },
+      "transform": [
+        {
+          
+          "calculate": "datum.properties.NAME == 'Viet Nam' ? 'Vietnam' : datum.properties.NAME",
+          "as": "topo_country_clean"
+        },
+        {
+          "lookup": "topo_country_clean",
+          "from": {
+            "data": {
+              "url": "data/top3_sites.csv"
+            },
+            "key": "country_name",
+            "fields": ["rank_1", "rank_2", "rank_3"]
+          }
+        },
+        {
+          "calculate": "datum.rank_1 ? 'Active Market' : 'No Data'",
+          "as": "Market Status"
+        },
+        {
+          "filter": "datum.rank_1 != null"
+        },
+        {
+          "filter": "Platform_Select == null || datum.rank_1 == Platform_Select"
+        }
+      ],
+      "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 0.6},
+      "encoding": {
+        "color": {
+          "field": "Market Status",
+          "type": "nominal",
+          "scale": {
+            "domain": ["Active Market"],
+            "range": ["#FF69B4"]
+          },
+          "legend": {
+            "orient": "bottom",
+            "title": null,
+            "labelFont": "Arial",
+            "labelFontSize": 12,
+            "padding": 10
+          }
+        },
+        "tooltip": [
+          {"field": "topo_country_clean", "type": "nominal", "title": "Country"},
+          {"field": "rank_1", "type": "nominal", "title": "#1 Platform"},
+          {"field": "rank_2", "type": "nominal", "title": "#2 Platform"},
+          {"field": "rank_3", "type": "nominal", "title": "#3 Platform"}
+        ]
+      }
+    }
+  ],
+  "config": {
+    "background": "transparent",
+    "view": {
+      "stroke": "transparent"
+    }
+  }
+}

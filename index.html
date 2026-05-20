@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+    <script src="vega_lite_1"></script>
+
+    <title>E-Commerce Performance Insights</title>
+
+    <link rel="stylesheet" href="design.css">
+</head>
+
+<body>
+
+    <h1>
+        <img src="pictures_icons/box_title.png" alt="Left Icon" class="header-icon">
+        <span>E-Commerce Performance Insights</span>
+        <img src="pictures_icons/bag_title.jpg" alt="Right Icon" class="header-icon">
+    </h1>
+
+    <div class="button-container">
+        <button onclick="showFact(1)">Fun Fact 1</button>
+        <button onclick="showFact(2)">Fun Fact 2</button>
+        <button onclick="showFact(3)">Fun Fact 3</button>
+    </div>
+
+    <p id="factBox"></p>
+
+    <script src="fun_facts"></script>
+
+    <div id="BAR_CHART" class="chart"></div>
+    <div id="PIE_CHART" class="chart"></div>
+    <div id="DONUT_CHART" class="chart"></div>
+    <div id="STACKED_BAR_CHART" class="chart"></div>
+    <div id="SYMBOL_PROP_CHART" class="chart"></div>
+    <div id="LOLLIPOP_CHART" class="chart"></div>
+    <div id="CHOROPLETH_MAP" class="chart"></div>
+
+
+</body>
+</html>

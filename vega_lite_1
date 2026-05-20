@@ -1,0 +1,51 @@
+var vg_1 = "bar_chart.json";
+vegaEmbed("#BAR_CHART", vg_1,{"actions":false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+}).catch(console.error);
+
+
+var vg_2 = "pie_chart.json";
+vegaEmbed("#PIE_CHART", vg_2,{"actions":false})
+    .then(function(result) {
+        // pie chart loaded successfully
+    })
+    .catch(console.error);
+
+
+var vg_3 = "donut_chart.json";
+vegaEmbed("#DONUT_CHART", vg_3,{"actions":false})
+    .then(function(result) {
+    // Access the Vega view instance as result.view
+    })
+    .catch(console.error);
+
+
+var vg_4 = "stacked_bar_chart.json";
+vegaEmbed("#STACKED_BAR_CHART", vg_4,{"actions":false})
+    .then(function(result) {})
+    .catch(console.error);
+
+
+// MAP CHART (NEW)
+var vg_5 = "symbol_prop_chart.json";
+vegaEmbed("#SYMBOL_PROP_CHART", vg_5,{"actions":false})
+    .then(function(result) {
+        // Map loaded successfully
+    })
+    .catch(console.error);
+
+
+// LOLLIPOP CHART (NEW)
+var vg_6 = "lollipop_chart.json";
+vegaEmbed('#LOLLIPOP_CHART', vg_6,{"actions":false})
+    .then(function(result) {
+    })
+    .catch(console.error);
+
+// GLOBAL CHOROPLETH MAP (NEW)
+var vg_7 = "choropleth_map.json"; /* <-- Your new TopoJSON map spec file name */
+vegaEmbed("#CHOROPLETH_MAP", vg_7, {"actions": false}) /* <-- Targets your map container div */
+    .then(function(result) {
+        // Global map loaded successfully
+    })
+    .catch(console.error);

@@ -1,0 +1,77 @@
+/* 1. Main Page Background Color */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #FFC5D3; /* <-- Change this for the overall page background */
+}
+
+/* 2. Header Block Background Color */
+h1 {
+    display: flex;
+    justify-content: center;  /* Centers left icon, text, and right icon together */
+    align-items: center;      /* Keeps them perfectly aligned vertically */
+    gap: 20px;                /* Creates an even gap between the text and both images */
+
+    text-align: center;
+    padding: 45px;
+    background-color: #9C0046; 
+    color: white;             
+    margin: 0;
+
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    cursor: pointer;
+    letter-spacing: 0px;
+}
+
+h1:hover {
+    letter-spacing: 3px;         
+    background-color: #7A0036;   
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.7); 
+    transform: scale(1.01);      /* Slight scale up on hover */
+}
+
+/* Controls both images equally */
+.header-icon {
+    height: 50px;             /* Limits height so they match the text size beautifully */
+    width: auto;              /* Prevents images from stretching or squishing */
+    object-fit: contain;
+    transition: transform 0.4s ease;
+}
+
+/* Optional dynamic touch: moves the icons slightly when you hover over the header */
+h1:hover .header-icon {
+    transform: scale(1.1);    /* Makes both icons pop out slightly on hover */
+}
+
+/* 3. Button Container Alignment */
+.button-container {
+    text-align: center;
+    margin-top: 30px;
+}
+.button-container button {
+    margin: 0 10px;  /* 0px space on top/bottom, 10px space on the left and right */
+    padding: 8px 16px; /* Optional: adds nice breathing room inside the buttons too */
+    cursor: pointer;
+}
+
+/* 4. Fun Fact Text Styling */
+#factBox {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 18px;
+    color: black;             /* Makes the text visible against the dark background */
+}
+
+/* 5. Centered Chart Card Styling (Shrink-wrapped to chart width) */
+.chart {
+    width: fit-content;       /* Shrinks the white background box tight to your chart size */
+    margin: 40px auto;        /* Balanced vertical spacing + horizontal centering */
+    padding: 24px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    
+    display: flex;
+    justify-content: center;
+}

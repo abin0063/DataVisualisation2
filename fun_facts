@@ -1,0 +1,19 @@
+function showFact(num) {
+
+    var factBox = document.getElementById("factBox");
+
+    if (num === 1) {
+        factBox.innerText =
+        "80% of Aussie households shop online annually, making Australia one of the most active digital shopping nations in the world!";
+    }
+
+    else if (num === 2) {
+        factBox.innerText =
+        "Click & Collect is incredibly popular down under, as busy Aussies love skipping shipping fees by buying online and picking up in-store.";
+    }
+
+    else if (num === 3) {
+        factBox.innerText =
+        "Australia created its own massive 24-hour online mega-sale event called Click Frenzy to rival America's Black Friday!";
+    }
+}
